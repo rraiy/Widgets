@@ -1,8 +1,10 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 
 const Dropdown = ({options, selected, onSelectedChange}) => {
 
-   const renderOptions = options.map(option=>{
+    const [openDropdown, setOpenDropdown] = useState(false);
+
+    const renderOptions = options.map(option=>{
 
         if (option.value === selected.value){ //avoid selected item show on the dropdown list
             return null;
@@ -11,20 +13,21 @@ const Dropdown = ({options, selected, onSelectedChange}) => {
         return(
             <div className="item" 
                 key={option.value}
-                onClick={()=>{onSelectedChange(option)}}
-            >
+                onClick={()=>{onSelectedChange(option)}}>
                 {option.label}</div>
         )
-   })
+    })
 
     return (
         <div className="ui form">
             <div className="field">
                 <label htmlFor="" className="label">Select a color</label>
-                <div className="ui selection dropdown visible active">
+                <div
+                    onClick={()=>setOpenDropdown(!openDropdown)}
+                    className={`ui selection dropdown ${openDropdown ? 'visible active':''}`}>
                     <i className="dropdown icon"></i>
                     <div className="text">{selected.label}</div>
-                    <div className="menu visible transition">{renderOptions}</div>
+                    <div className={`menu ${openDropdown ? 'visible transition':''}`}>{renderOptions}</div>
                 </div>
             </div>
         </div>
