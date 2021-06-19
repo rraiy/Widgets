@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import Accordion from './components/Accordion';
 import Search from './components/Search';
 import Dropdown from './components/Dropdown';
+import Translate from './components/Translate';
 
 const items = [
     {
@@ -46,9 +47,14 @@ const App = () =>{
             <button onClick={()=>{setShowDropdown(!showDropdown)}}>show Dropdown</button>
             {
                 showDropdown?
-                <Dropdown options={options} selected={selected} onSelectedChange={setSelected}/>
+                <>
+                <Dropdown label="Select a color." options={options} selected={selected} onSelectedChange={setSelected}/>
+                <div style={{color:`${selected.value}`}}>The text will change color.</div>
+                <br />
+                </>
                 :null
-            }   
+            }
+            <Translate/>  
         </div>
     )
 
