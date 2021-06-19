@@ -15,5 +15,7 @@ Auto searching process without submit button.
 
 A dropdown form.
 
-### not yet haha :p
+### Translate
+
+Cause the api only be used on localhost, so it will not get any response sorry.
 

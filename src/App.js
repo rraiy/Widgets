@@ -41,10 +41,10 @@ const App = () =>{
     
     return (
         
-        <div>
+        <div style={{width:'400px', display:"flex", flexDirection:'column', margin:"0 auto"}}>
             {/* <Accordion items={items}></Accordion> */}
             {/* <Search></Search> */}
-            <button onClick={()=>{setShowDropdown(!showDropdown)}}>show Dropdown</button>
+            <button onClick={()=>{setShowDropdown(!showDropdown)}}>show/close Dropdown</button>
             {
                 showDropdown?
                 <>
