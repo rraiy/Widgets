@@ -42,8 +42,11 @@ const App = () =>{
     return (
         
         <div style={{width:'400px', display:"flex", flexDirection:'column', margin:"0 auto"}}>
-            {/* <Accordion items={items}></Accordion> */}
-            {/* <Search></Search> */}
+            <h2>Accordion</h2>
+            <Accordion style={{marginBottom:"20px"}} items={items}></Accordion>
+            <h2>Search</h2>
+            <Search style={{marginBottom:"20px"}}></Search>
+            <h2>Dropdown</h2>
             <button onClick={()=>{setShowDropdown(!showDropdown)}}>show/close Dropdown</button>
             {
                 showDropdown?
@@ -54,6 +57,7 @@ const App = () =>{
                 </>
                 :null
             }
+            <h2>Translate (sorry, can't used the api)</h2>
             <Translate/>  
         </div>
     )
