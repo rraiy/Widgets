@@ -2,7 +2,7 @@ import React, {useState, useEffect}from 'react';
 import Dropdown from './Dropdown';
 import Convert from './Convert';
 
-const key = "AIzaSyCHUCmpR7cT_yDFHC98CZJy2LTms-IwDlM";
+
 
 
 const options = [

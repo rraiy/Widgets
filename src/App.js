@@ -3,6 +3,8 @@ import Accordion from './components/Accordion';
 import Search from './components/Search';
 import Dropdown from './components/Dropdown';
 import Translate from './components/Translate';
+import Route from './components/Route';
+import Header from './components/Header';
 
 const items = [
     {
@@ -42,26 +44,39 @@ const App = () =>{
     return (
         
         <div style={{width:'400px', display:"flex", flexDirection:'column', margin:"0 auto"}}>
+            <Header/>
+            <Route path="/">
             <h2>Accordion</h2>
-            <Accordion style={{marginBottom:"20px"}} items={items}></Accordion>
+                <Accordion style={{marginBottom:"20px"}} items={items} />
+            </Route>
+
+            <Route path="/search">
             <h2>Search</h2>
-            <Search style={{marginBottom:"20px"}}></Search>
-            <h2>Dropdown</h2>
-            <button onClick={()=>{setShowDropdown(!showDropdown)}}>show/close Dropdown</button>
-            {
-                showDropdown?
-                <>
-                <Dropdown label="Select a color." options={options} selected={selected} onSelectedChange={setSelected}/>
-                <div style={{color:`${selected.value}`}}>The text will change color.</div>
-                <br />
-                </>
-                :null
-            }
-            <h2>Translate (sorry, can't used the api)</h2>
-            <Translate/>  
+                <Search style={{marginBottom:"20px"}} />
+            </Route>
+
+            <Route path="/dropdown">
+                <h2>Dropdown</h2>
+                <button onClick={()=>{setShowDropdown(!showDropdown)}}>show/close Dropdown</button>
+                {
+                    showDropdown?
+                    <>
+                    <Dropdown label="Select a color." options={options} selected={selected} onSelectedChange={setSelected}/>
+                    <div style={{color:`${selected.value}`}}>The text will change color.</div>
+                    <br />
+                    </>
+                    :null
+                }
+            </Route>
+            
+            <Route path="/translate">
+                <h2>Translate (sorry, can't used the api on public domain)</h2>
+                <Translate/>  
+            </Route>
         </div>
     )
 
 }
 
 export default App;
+
