@@ -1,4 +1,4 @@
-## React Projct - Widget 
+## React Project - Widget 
 
 Coded by react hooks.
 
